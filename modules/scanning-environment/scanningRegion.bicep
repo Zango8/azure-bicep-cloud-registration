@@ -128,9 +128,11 @@ resource scannersSubnet 'Microsoft.Network/virtualNetworks/subnets@2024-07-01' =
   properties: {
     addressPrefixes: [scannersSubnetPrefix]
     defaultOutboundAccess: false
-    natGateway: natGateway ? {
-      id: scannersNatGateway.id
-    } : null
+    natGateway: natGateway
+      ? {
+          id: scannersNatGateway.id
+        }
+      : null
     networkSecurityGroup: {
       id: scanningNsg.id
     }
